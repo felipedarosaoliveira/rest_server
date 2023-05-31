@@ -17,6 +17,14 @@ class UserController{
         }
 
     }
+
+    async create(req,res){
+        console.log(req.file);
+        const {name,email,password} = req.body;
+        const user = {name,email,password, avatar:req.file.filename};
+        console.log(user);
+        res.json(user);
+    }
 }
 
 function build({repository}){
